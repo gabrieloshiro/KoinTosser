@@ -15,9 +15,21 @@ repositories {
 	mavenCentral()
 }
 
+publishing {
+	publications {
+		create<MavenPublication>("maven") {
+			groupId = "com.kointosser"
+			artifactId = "kointosser"
+			version = "1.0.0"
+
+			from(components["java"])
+		}
+	}
+}
+
 dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	testImplementation("org.assertj:assertj-core:3.6.2")
+	testImplementation("org.assertj:assertj-core:3.11.1")
 	testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.1")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.3.1")
 }
